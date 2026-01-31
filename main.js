@@ -38,7 +38,7 @@ map.on('load', () => {
             <strong>${props.pref_name}</strong><br/>
             有権者数：${props.voters}人<br/>
             議席数：${props.seats}席<br/>
-            1席あたりの有権者数：${Math.round(props.voters_ps)/10}人<br/>
+            1席あたりの有権者数：${props.voters_ps}人<br/>
             一票の格差（福井県=1）：${props.vote_ratio}倍<br/>
         `)
         .addTo(map);
