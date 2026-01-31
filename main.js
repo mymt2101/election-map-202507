@@ -14,7 +14,7 @@ map.addControl(new maplibregl.NavigationControl(), 'top-right');
 map.on('load', () => {
     map.addSource('senkyo', {
         type: 'geojson',
-        data: 'election_prefectures.geojson'
+        data: 'election_district.geojson'
     });
 
     map.addLayer({
@@ -35,11 +35,11 @@ map.on('load', () => {
         new maplibregl.Popup()
         .setLngLat(e.lngLat)
         .setHTML(`
-            <strong>${props.pref_name}</strong><br/>
+            <strong>${props.dist_name}</strong><br/>
             有権者数：${props.voters}人<br/>
             議席数：${props.seats}席<br/>
             1席あたりの有権者数：${props.voters_ps}人<br/>
-            一票の格差（福井県=1）：${props.vote_ratio}倍<br/>
+            1票の格差（福井県=1）：${props.vote_ratio}倍<br/>
         `)
         .addTo(map);
     });
