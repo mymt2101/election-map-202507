@@ -23,11 +23,7 @@ map.on('load', () => {
         source: 'senkyo',
         paint: {
             'fill-extrusion-color': '#CCCCCC',
-            'fill-extrusion-height': [
-                '*',
-                ['coalesce', ['get', 'wt_ratio'], 1],
-                100000
-            ],
+            'fill-extrusion-height': ['*',['get', 'vote_ratio'], 100000],
             'fill-extrusion-base': 0,
             'fill-extrusion-opacity': 0.8
         }
@@ -40,10 +36,10 @@ map.on('load', () => {
         .setLngLat(e.lngLat)
         .setHTML(`
             <strong>${props.pref_name}</strong><br/>
-            有権者数：約${Math.round(props.voters)/10}万人<br/>
+            有権者数：${props.voters}人<br/>
             議席数：${props.seats}席<br/>
-            1席あたりの有権者数：${Math.round(props.vpt_seat)/10}万人<br/>
-            一票の価値（埼玉県を1とした場合）：${props.wt_ratio}倍<br/>
+            1席あたりの有権者数：${Math.round(props.voters_ps)/10}人<br/>
+            一票の格差（福井県=1）：${props.vote_ratio}倍<br/>
         `)
         .addTo(map);
     });
